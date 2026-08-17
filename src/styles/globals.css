@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary-dark: #111111;
+  --color-bg-warm: #F7F6F2;
+  --color-accent: #FF4D2E;
+  --color-accent-hover: #e03e20;
+  --color-white: #FFFFFF;
+  --color-secondary-text: #686868;
+  --color-border-subtle: rgba(17, 17, 17, 0.08);
+  --color-border-dark-subtle: rgba(255, 255, 255, 0.12);
+  --color-card-bg: #FFFFFF;
+  --color-card-dark-bg: #181818;
+  
+  --font-main: var(--font-plus-jakarta-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: var(--color-bg-warm);
+  --foreground: var(--color-primary-dark);
 }
 
 body {
   background: var(--background);
+  background-image: 
+    radial-gradient(at 15% 50%, hsla(28, 100%, 74%, 0.08) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.05) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(355, 100%, 93%, 0.08) 0px, transparent 50%);
+  background-attachment: fixed;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Button utility classes */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2.5 font-main text-[0.95rem] font-bold tracking-[0.04em] uppercase no-underline px-8 py-4 rounded transition-all duration-300 cursor-pointer border border-transparent;
+  }
+  
+  .btn-primary {
+    @apply bg-accent text-white hover:bg-accent-hover hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent text-primary-dark border-primary-dark hover:bg-primary-dark hover:text-white hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary-light {
+    @apply bg-transparent text-white border-white/30 hover:border-white hover:bg-white/5;
+  }
+}
+
+/* Utility typography classes */
+@layer utilities {
+  .section-padding {
+    @apply py-12 md:py-20 lg:py-24;
+  }
+
+  .section-eyebrow {
+    @apply inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-accent/10 border border-accent/20 font-main text-[0.75rem] font-bold tracking-[0.15em] uppercase text-accent mb-6 shadow-[0_0_15px_rgba(255,77,46,0.15)];
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-orange-400;
+  }
+
+  .section-title {
+    @apply font-display text-[clamp(2.2rem,4.5vw,3rem)] font-extrabold mb-5 leading-[1.1] tracking-[-0.02em] text-primary-dark;
+  }
+
+  .section-subtitle {
+    @apply text-[1.15rem] max-w-[600px] mx-auto text-secondary-text leading-relaxed;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+  }
+
+  .glass-card-dark {
+    background: rgba(24, 24, 24, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.4);
+  }
+
+  .mesh-dark {
+    background-color: var(--color-primary-dark);
+    background-image: 
+      radial-gradient(at 40% 20%, rgba(255, 77, 46, 0.15) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, rgba(255, 255, 255, 0.05) 0px, transparent 50%);
+  }
 }
