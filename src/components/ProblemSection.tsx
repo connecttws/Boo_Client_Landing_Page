@@ -50,10 +50,10 @@ export default function ProblemSection() {
             return (
             <motion.div 
               key={prob.title}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.35, type: "spring", stiffness: 120, damping: 15 }}
+              transition={{ duration: 0.5, delay: i * 0.1, type: "spring", stiffness: 100 }}
               whileHover={{ y: -5, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.1)", borderColor: "rgba(255, 255, 255, 1)" }}
               className={`glass-card p-6 md:p-8 rounded-2xl text-left transition-all duration-300 relative group overflow-hidden border-t-[4px] ${borderColors[i % 4]}`}
             >

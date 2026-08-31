@@ -95,8 +95,8 @@ export default function Hero() {
 
           {/* HERO WORKFLOW VISUAL */}
           <motion.div 
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
             className="relative"
           >
@@ -126,9 +126,9 @@ export default function Hero() {
                 ].map((step, i) => (
                   <motion.div 
                     key={step.num}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 + i * 0.1 }}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.6 + i * 0.15 }}
                     className="flex items-center justify-between p-3.5 bg-white/60 border border-border-subtle rounded-lg hover:border-accent/40 hover:bg-white hover:shadow-md transition-all duration-300 group hover:translate-x-1 cursor-default"
                   >
                     <div className="flex items-center gap-3.5">

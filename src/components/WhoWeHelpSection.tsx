@@ -49,10 +49,10 @@ export default function WhoWeHelpSection() {
           {industries.map((ind, i) => (
             <motion.div 
               key={ind.name} 
-              initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, type: "spring", stiffness: 80, delay: i * 0.05 }}
+              transition={{ duration: 0.5, type: "spring", stiffness: 80, delay: i * 0.1 }}
               className="glass-card p-6 md:p-8 rounded flex flex-col items-center justify-center text-center group hover:-translate-y-1 hover:shadow-xl transition-all duration-300 relative overflow-hidden"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

@@ -29,8 +29,8 @@ export default function HowItWorksSection() {
           {steps.map((step, i) => (
             <div key={step.num} className="relative flex-1 flex flex-col">
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15, duration: 0.5, type: "spring", stiffness: 100 }}
                 className="glass-card p-6 md:p-8 rounded flex-1 flex flex-col items-center text-center group hover:-translate-y-1 transition-all duration-300 relative z-10"
