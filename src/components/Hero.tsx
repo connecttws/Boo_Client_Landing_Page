@@ -38,8 +38,8 @@ export default function Hero() {
   };
 
   return (
-    <section className="pt-20 md:pt-32 pb-12 lg:pb-16 overflow-hidden relative">
-      <div className="container max-w-[1180px] mx-auto px-6 relative z-10">
+    <section className="pt-5 md:pt-5 pb-12 lg:pb-16 overflow-hidden relative">
+      <div className="container max-w-[1180px] mx-auto px-4 md:px-6 relative z-10">
         <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-16 items-center">
           
           <motion.div 
@@ -56,7 +56,7 @@ export default function Hero() {
               BOOCLIENTS
             </motion.span>
             
-            <motion.h1 variants={itemVariants} className="text-[clamp(2.4rem,4.8vw,3.8rem)] leading-[1.08] tracking-[-0.03em] mb-6 text-primary-dark font-display font-bold">
+            <motion.h1 variants={itemVariants} className="text-[clamp(2rem,6vw,3.8rem)] leading-[1.08] tracking-[-0.03em] mb-6 text-primary-dark font-display font-bold">
               <motion.span variants={typingVariants} initial="hidden" animate="visible" className="inline-block">
                 {headingText.split("").map((char, index) => (
                   <motion.span key={index} variants={letterVariants}>

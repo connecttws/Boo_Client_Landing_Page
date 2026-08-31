@@ -12,7 +12,7 @@ export default function CustomSupportSection() {
 
   return (
     <section className="section-padding bg-bg-warm">
-      <div className="container max-w-[1180px] mx-auto px-6">
+      <div className="container max-w-[1180px] mx-auto px-4 md:px-6">
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}

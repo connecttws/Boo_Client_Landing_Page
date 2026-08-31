@@ -17,7 +17,7 @@ export default function LeadFormSection() {
 
   return (
     <section className="section-padding bg-white border-t border-border-subtle" id="enquire">
-      <div className="container max-w-[1180px] mx-auto px-6">
+      <div className="container max-w-[1180px] mx-auto px-4 md:px-6">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

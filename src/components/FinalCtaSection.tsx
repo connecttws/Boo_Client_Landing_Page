@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function FinalCtaSection() {
   return (
     <section className="bg-primary-dark text-white text-center border-b border-white/10 py-24">
-      <div className="container max-w-[1180px] mx-auto px-6">
+      <div className="container max-w-[1180px] mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

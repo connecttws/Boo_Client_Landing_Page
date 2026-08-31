@@ -4,7 +4,7 @@ import { Play } from 'lucide-react';
 export default function VslSection() {
   return (
     <section className="py-[60px] pb-[100px] bg-primary-dark" id="vsl">
-      <div className="container max-w-[1180px] mx-auto px-6">
+      <div className="container max-w-[1180px] mx-auto px-4 md:px-6">
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,7 +24,7 @@ export default function VslSection() {
 
           <motion.div 
             whileHover={{ scale: 1.01, borderColor: "rgba(255, 77, 46, 0.4)" }}
-            className="group w-full max-w-[860px] mx-auto mb-9 bg-[#181818] border border-white/10 min-h-[260px] sm:min-h-0 aspect-[4/3] sm:aspect-video rounded relative flex flex-col items-center justify-center p-4 md:p-8 cursor-pointer transition-all duration-500 shadow-2xl"
+            className="group w-full max-w-[860px] mx-auto mb-9 bg-[#181818] border border-white/10 min-h-[200px] sm:min-h-0 aspect-[4/3] sm:aspect-video rounded relative flex flex-col items-center justify-center p-4 md:p-8 cursor-pointer transition-all duration-500 shadow-2xl"
           >
             <div className="absolute top-3 left-3 md:top-5 md:left-5 bg-white/10 border border-white/10 text-[0.6rem] md:text-[0.75rem] font-bold tracking-[0.08em] uppercase px-2.5 py-1 md:px-3 md:py-1.5 rounded-sm text-white">
               BOOCLIENTS OVERVIEW

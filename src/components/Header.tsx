@@ -3,38 +3,45 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
+const navLinks = [
+  { label: 'Services', href: '#services' },
+  { label: 'How It Works', href: '#how-it-works' },
+  { label: 'Why BOOCLIENTS', href: '#why-booclients' },
+  { label: 'Who We Help', href: '#who-we-help' },
+];
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
-  const navLinks = [
-    { label: 'Services', href: '#services' },
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Why BOOCLIENTS', href: '#why-booclients' },
-    { label: 'Who We Help', href: '#who-we-help' },
-  ];
-
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-      
-      let currentActive = '';
-      for (const link of navLinks) {
-        const id = link.href.substring(1);
-        const element = document.getElementById(id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          // If the top of the section is near the top of viewport or it's currently taking up the viewport
-          if (rect.top <= 150 && rect.bottom >= 150) {
-            currentActive = id;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          
+          let currentActive = '';
+          for (const link of navLinks) {
+            const id = link.href.substring(1);
+            const element = document.getElementById(id);
+            if (element) {
+              const rect = element.getBoundingClientRect();
+              if (rect.top <= 150 && rect.bottom >= 150) {
+                currentActive = id;
+              }
+            }
           }
-        }
+          setActiveSection(currentActive);
+          ticking = false;
+        });
+        ticking = true;
       }
-      setActiveSection(currentActive);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll(); // Initial check
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -45,7 +52,7 @@ export default function Header() {
         scrolled ? 'bg-[#F7F6F2]/90 backdrop-blur-md shadow-sm border-b border-border-subtle py-3 md:py-4' : 'bg-transparent py-4 md:py-6'
       }`}
     >
-      <div className="container max-w-[1180px] mx-auto px-6 flex items-center justify-between">
+      <div className="container max-w-[1180px] mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link href="/" className="font-display text-2xl font-extrabold tracking-tight text-primary-dark flex items-center gap-1.5">
           BOOCLIENTS<span className="w-2 h-2 bg-accent rounded-full inline-block" />
         </Link>
