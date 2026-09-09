@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
 
 export default function LeadFormSection() {
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -9,10 +11,9 @@ export default function LeadFormSection() {
     setIsSubmitting(true);
     
     setTimeout(() => {
-      alert('Thank you for reaching out to BOOCLIENTS. A dedicated team member will review your requirements and reach out shortly.');
       setIsSubmitting(false);
-      (e.target as HTMLFormElement).reset();
-    }, 1000);
+      router.push('/thank-you');
+    }, 800);
   };
 
   return (

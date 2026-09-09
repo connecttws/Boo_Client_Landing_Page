@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Why BOOCLIENTS', href: '#why-booclients' },
-  { label: 'Who We Help', href: '#who-we-help' },
+  { label: 'Services', href: '/#services' },
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'Why BOOCLIENTS', href: '/#why-booclients' },
+  { label: 'Who We Help', href: '/#who-we-help' },
 ];
 
 export default function Header() {
@@ -25,7 +25,7 @@ export default function Header() {
           
           let currentActive = '';
           for (const link of navLinks) {
-            const id = link.href.substring(1);
+            const id = link.href.replace(/^\/?#/, '');
             const element = document.getElementById(id);
             if (element) {
               const rect = element.getBoundingClientRect();
@@ -59,25 +59,28 @@ export default function Header() {
 
         <nav className="hidden md:flex items-center gap-9">
           <ul className="flex items-center gap-9 list-none">
-            {navLinks.map((link) => (
-              <li key={link.label}>
-                <Link 
-                  href={link.href} 
-                  className={`text-[0.9rem] font-semibold transition-colors ${
-                    activeSection === link.href.substring(1) 
-                      ? 'text-accent' 
-                      : 'text-primary-dark hover:text-accent'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const sectionId = link.href.replace(/^\/?#/, '');
+              return (
+                <li key={link.label}>
+                  <Link 
+                    href={link.href} 
+                    className={`text-[0.9rem] font-semibold transition-colors ${
+                      activeSection === sectionId 
+                        ? 'text-accent' 
+                        : 'text-primary-dark hover:text-accent'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <Link href="#enquire" className="btn btn-primary px-6 py-3 text-sm">
+          <Link href="/#enquire" className="btn btn-primary px-6 py-3 text-sm">
             GET STARTED
           </Link>
         </div>
@@ -99,20 +102,23 @@ export default function Header() {
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-full left-0 w-full bg-bg-warm border-b border-border-subtle p-6 flex flex-col gap-6 md:hidden shadow-lg"
           >
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={`font-display text-2xl font-bold ${
-                  activeSection === link.href.substring(1) ? 'text-accent' : 'text-primary-dark'
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const sectionId = link.href.replace(/^\/?#/, '');
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`font-display text-2xl font-bold ${
+                    activeSection === sectionId ? 'text-accent' : 'text-primary-dark'
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <Link
-              href="#enquire"
+              href="/#enquire"
               className="btn btn-primary mt-4 text-center"
               onClick={() => setIsOpen(false)}
             >
